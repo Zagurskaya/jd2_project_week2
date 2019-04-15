@@ -34,8 +34,5 @@ public class App {
         documentController.delete(savedDocument1.getId());
 
 
-//            DocumentService documentService =  context.getBean(DocumentService.class);
-//            documentService.
-//                    logger.info(items);
     }
 }

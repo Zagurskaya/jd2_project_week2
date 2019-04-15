@@ -28,7 +28,7 @@ public class DocumentControllerImpl implements DocumentController {
     @Override
     public DocumentDTO getDocumentById(Long id) {
         Assert.notNull(id, "id is mandatory field");
-        Assert.isTrue(id <= 0 , "id more than zero");
+        Assert.isTrue(id >= 0 , "id less than zero");
 
         return documentService.getDocumentById(id);
     }
@@ -36,7 +36,7 @@ public class DocumentControllerImpl implements DocumentController {
     @Override
     public void delete(Long id) {
         Assert.notNull(id, "id is mandatory field");
-        Assert.isTrue(id <= 0 , "id more than zero");
+        Assert.isTrue(id >= 0 , "id less than zero");
 
         documentService.delete(id);
     }
