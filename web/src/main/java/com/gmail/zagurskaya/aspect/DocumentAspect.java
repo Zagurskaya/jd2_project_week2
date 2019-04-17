@@ -14,25 +14,25 @@ import java.time.format.DateTimeFormatter;
 @Aspect
 @Component
 public class DocumentAspect {
-    private static final Logger logger = LogManager.getLogger(DocumentAspect.class);
+
+    private final Logger logger = LogManager.getLogger(DocumentAspect.class);
 
     LocalDate date = LocalDate.now();
 
-    public static String getFormattedLocalDateAndTime(LocalDate localDate) {
+    public String getFormattedLocalDateAndTime(LocalDate localDate) {
         return localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00.000"));
     }
 
-
-    @Pointcut("execution(* com.gmail.zagurskaya.controller.imp.*.*(..))")
-    public void CallDocumentAdd() {
+    @Pointcut("execution(* com.gmail.zagurskaya.controller.impl.*.*(..))")
+    public void callDocumentAdd() {
     }
 
-    @Before("CallDocumentAdd()")
+    @Before("callDocumentAdd()")
     public void beforeCallAtMethodAdd(){
         logger.info("start time = "+getFormattedLocalDateAndTime(date));
     }
 
-    @After("CallDocumentAdd()")
+    @After("callDocumentAdd()")
     public void afterCallAtMethodAdd(){
         logger.info("end time = "+getFormattedLocalDateAndTime(date));
     }

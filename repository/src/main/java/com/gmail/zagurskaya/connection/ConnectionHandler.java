@@ -17,8 +17,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConnectionHandler {
 
-    private static final Logger logger = LogManager.getLogger(ConnectionHandler.class);
-    private static final String ERROR_MESSAGE = "Connection Failed! Check output console.";
+    private final Logger logger = LogManager.getLogger(ConnectionHandler.class);
+
+    private final String ERROR_MESSAGE = "Connection Failed! Check output console.";
     private final DatabaseProperties databaseProperties;
 
     @Autowired
